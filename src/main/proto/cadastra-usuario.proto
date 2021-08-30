@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package com.usuarios.def;
+
+option java_multiple_files = true;
+option java_package = "com.usuarios.grpc.def.cadastro";
+option java_outer_classname = "CadastraUsuarioProto";
+
+service CadastraUsuarioService {
+    rpc CadastraUsuario (CadastraUsuarioRequest) returns (UsuarioAtualizadoReply) {
+    }
+
+    rpc AtualizaUsuario (AtualizaUsuarioRequest) returns (UsuarioAtualizadoReply) {
+    }
+}
+message CadastraUsuarioRequest {
+    string nome = 1;
+    string email = 2;
+    string senha = 3;
+}
+
+
+message AtualizaUsuarioRequest {
+    string codigo = 1;
+    string nome = 2;
+    string email = 3;
+    string senha = 4;
+    string confirmaSenha= 5;
+}
+
+message UsuarioAtualizadoReply {
+	string codigo = 1;
+    string nome = 2;
+    string email = 3;
+}
